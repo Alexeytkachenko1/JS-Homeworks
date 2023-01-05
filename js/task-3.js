@@ -1,20 +1,19 @@
 // # Задание 3
 
-// Напиши фукцнию `findLongestWord(string)`, которая принимает параметром
-// произвольную строку (в строке будут только слова и пробелы) и возвращает самое
-// длинное слово в этой строке.
+// Напиши фукцнию `findLongestWord(string)`, которая принимает параметром произвольную строку (в строке будут только слова и пробелы) и возвращает самое длинное слово в этой строке.
 
-// ```js
-// const findLongestWord = function(string) {
-//   // твой код
-// };
+const findLongestWord = function (string) {
+  let words = string.split(' ');
+  let longestWord = [0];
+  for (let i = 0; i < words.length; i += 1) {
+    // log(words[i].length);
+    if (words[i].length > longestWord.length) longestWord = words[i];
+  }
+  return longestWord;
+};
 
-// /*
-//  * Вызовы функции для проверки работоспособности твоей реализации.
-//  */
-// console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
+console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
 
-// console.log(findLongestWord('Google do a roll')); // 'Google'
+console.log(findLongestWord('Google do a roll')); // 'Google'
 
-// console.log(findLongestWord('May the force be with you')); // 'force'
-// ```
+console.log(findLongestWord('May the force be with you')); // 'force'

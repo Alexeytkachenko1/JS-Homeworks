@@ -9,14 +9,20 @@
 // индекса `2` выведет `'3 - Ajax'`.
 
 // ```js
-// const logItems = function(array) {
-//   // твой код
-// };
+const logItems = function (array) {
+  for (const element of array) {
+    console.log(
+      `номер элемента-${
+        array.indexOf(element) + 1
+      } -значение элемента ${element}`,
+    );
+  }
+};
 
 // /*
 //  * Вызовы функции для проверки работоспособности твоей реализации.
 //  */
-// logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
+logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
 
-// logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 // ```
