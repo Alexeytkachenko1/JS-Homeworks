@@ -5,6 +5,26 @@
 // getItems() - возвращает массив текущих товаров
 // addItem(item) - получает новый товар и добавляет его к текущим
 // removeItem(item) - получет товар и, если он есть, удаляет его из текущих
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
+  getItems() {
+    return this.items;
+  }
+  addItem(str) {
+    this.items.push(str);
+  }
+  removeItem(str) {
+    const newArr = [];
+    for (const el of this.items) {
+      if (el !== str) {
+        newArr.push(el);
+      }
+    }
+    this.items = newArr;
+  }
+}
 const storage = new Storage([
   'Нанитоиды',
   'Пролонгер',

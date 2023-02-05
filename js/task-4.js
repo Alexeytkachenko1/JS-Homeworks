@@ -6,6 +6,27 @@
 // Метод append(str) - получает парметр str (строку) и добавляет ее в конец _value
 // Метод prepend(str) - получает парметр str (строку) и добавляет ее в начало value
 // Метод pad(str) - получает парметр str (строку) и добавляет ее в начало и в конец _value
+class StringBuilder {
+  constructor(value) {
+    this._value = value;
+  }
+  get value() {
+    return this._value;
+  }
+  //   setValue(str) {
+  //     this.value = str;
+  //   }
+  append(str) {
+    this._value += str;
+  }
+  prepend(str) {
+    this._value = str + this._value;
+  }
+  pad(str) {
+    this._value = str + this._value + str;
+  }
+}
+
 const builder = new StringBuilder('.');
 
 builder.append('^');

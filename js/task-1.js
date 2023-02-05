@@ -1,12 +1,18 @@
 // Напиши функцию-конструктор Account, которая создает объект со свойствами login и email. В prototype функции-конструктора добавь метод getInfo(), который выводит в консоль значения полей login и email объекта который его вызвал.
-
-console.log(Account.prototype.getInfo); // function
+const Account = function ({ login = 'name', email = 'email' } = {}) {
+  this.login = login;
+  this.email = email;
+};
+Account.prototype.getInfo = function () {
+  console.log(` Login:${this.login},Email:${this.email}`);
+};
+console.log(Account.prototype.getInfo); // functions
 
 const mango = new Account({
   login: 'Mangozedog',
   email: 'mango@dog.woof',
 });
-
+console.log(mango);
 mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
 
 const poly = new Account({
