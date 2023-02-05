@@ -1,29 +1,18 @@
-// Задание 4
-// Напиши функцию countTotalSalary(employees) принимающую объект зарплат. Функция считает общую сумму запрплаты работников и возращает ее. Каждое поле объекта, передаваемого в функцию, имеет вид "имя":"зарплата".
+// Напиши класс StringBuilder. На вход он получает один параметр - строку, которую записывает в свойство _value.
 
-const countTotalSalary = function (employees) {
-  const values = Object.values(employees);
-  let totalSalary = 0;
-  for (const value of values) {
-    totalSalary += value;
-  }
-  return totalSalary;
-};
+// Добавь классу следующий функционал:
 
-console.log(countTotalSalary({})); // 0
+// Геттер value - возвращает текущее значение поля _value
+// Метод append(str) - получает парметр str (строку) и добавляет ее в конец _value
+// Метод prepend(str) - получает парметр str (строку) и добавляет ее в начало value
+// Метод pad(str) - получает парметр str (строку) и добавляет ее в начало и в конец _value
+const builder = new StringBuilder('.');
 
-console.log(
-  countTotalSalary({
-    mango: 100,
-    poly: 150,
-    alfred: 80,
-  }),
-); // 330
+builder.append('^');
+console.log(builder.value); // '.^'
 
-console.log(
-  countTotalSalary({
-    kiwi: 200,
-    lux: 50,
-    chelsy: 150,
-  }),
-); // 400
+builder.prepend('^');
+console.log(builder.value); // '^.^'
+
+builder.pad('=');
+console.log(builder.value); // '=^.^='

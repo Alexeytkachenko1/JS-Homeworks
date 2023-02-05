@@ -1,34 +1,17 @@
-// Задание 1
-// Напиши скрипт, который, для объекта user, последовательно:
+// Напиши функцию-конструктор Account, которая создает объект со свойствами login и email. В prototype функции-конструктора добавь метод getInfo(), который выводит в консоль значения полей login и email объекта который его вызвал.
 
-// добавляет поле mood со значением 'happy'
-// заменяет значение hobby на 'skydiving'
-// заменяет значение premium на false
-// выводит содержимое объекта user в формате ключ:значение используя Object.keys() и for...of
+console.log(Account.prototype.getInfo); // function
 
-const user = {
-  name: 'Mango',
-  age: 20,
-  hobby: 'html',
-  premium: true,
+const mango = new Account({
+  login: 'Mangozedog',
+  email: 'mango@dog.woof',
+});
 
-  addProperty(value) {
-    this.mood = value;
-  },
-  changeHobby(value) {
-    this.hobby = value;
-  },
-  changePremium(value) {
-    this.premium = value;
-  },
-};
-const properties = Object.keys(user);
-for (const property of properties) {
-  console.log(`${property} : ${user[property]},`);
-}
-const mood = 'happy';
-user.addProperty(mood);
-user.changeHobby('skydiving');
-user.changePremium('false');
+mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
 
-console.log(user);
+const poly = new Account({
+  login: 'Poly',
+  email: 'poly@mail.com',
+});
+
+poly.getInfo(); // Login: Poly, Email: poly@mail.com
