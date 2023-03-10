@@ -13,17 +13,7 @@ console.log(dataGallery);
 //   для того, чтобы при следующем открытии модального окна, пока грузится
 //   изображение, мы не видели предыдущее.
 
-const containerEl = document.querySelector('.js-gallery');
-const cardsMarkup = createCardsMarkup(dataGallery);
-containerEl.insertAdjacentHTML('beforeend', cardsMarkup);
-const ref = {
-  openModal: document.querySelector('.lightbox'),
-  modalImg: document.querySelector('.lightbox__image'),
-  closeModal: document.querySelector('[data-action="close-lightbox"]'),
-  backdrop: document.querySelector('.lightbox__overlay'),
-};
-
-function createCardsMarkup(dataGallery) {
+export function createCardsMarkup(dataGallery) {
   return dataGallery
     .map(({ preview, original }) => {
       return `
@@ -47,7 +37,7 @@ function createCardsMarkup(dataGallery) {
 }
 containerEl.addEventListener('click', onGetFullImg);
 
-function onGetFullImg(event) {
+export function onGetFullImg(event) {
   const eventEl = event.target;
   const isImg = eventEl.classList.contains('gallery__image');
   if (!isImg) {
@@ -61,7 +51,7 @@ function onGetFullImg(event) {
 
 console.log(ref.openModal);
 
-function onOpenModal() {
+export function onOpenModal() {
   ref.openModal.classList.add('is-open');
   window.addEventListener('keydown', onEscPress);
   window.addEventListener('keydown', onLeftRight);
@@ -72,7 +62,7 @@ function onModalImg(imgSet) {
 }
 ref.closeModal.addEventListener('click', closeModal);
 
-function closeModal() {
+export function closeModal() {
   const isOpenModal = document.querySelector('.lightbox.is-open');
   if (isOpenModal) {
     ref.openModal.classList.remove('is-open');
@@ -80,14 +70,14 @@ function closeModal() {
   }
   window.removeEventListener('keydown', onEscPress);
 }
-function onEscPress(event) {
+export function onEscPress(event) {
   console.log(event);
   if (event.code === 'Escape') {
     closeModal();
   }
 }
 ref.backdrop.addEventListener('click', onBackdropClick);
-function onBackdropClick(event) {
+export function onBackdropClick(event) {
   console.log(event.currentTarget);
   console.log(event.target);
   if (event.currentTarget === event.target) {
@@ -95,7 +85,7 @@ function onBackdropClick(event) {
   }
   closeModal();
 }
-const refUL = document.querySelector('.js-gallery');
+export const refUL = document.querySelector('.js-gallery');
 // const mapUl = refUL.map(index => index);
 // console.log(mapUl);
 function onLeftRight(event) {
