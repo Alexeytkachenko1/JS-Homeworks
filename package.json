@@ -2,9 +2,8 @@
   "name": "js-homeworks",
   "version": "1.0.0",
   "description": "Создай галерею с возможностью клика по ее элементам и просмотра полноразмерного изображения в модальном окне. Превью результата посмотри [по ссылке](https://take.ms/ZvBD0E).",
-  "main": "index.js",
   "scripts": {
-    "dev":   "parcel src/index.html",
+    "dev": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "author": "",
